@@ -34,7 +34,6 @@ def calc(expression):
       if dEyes.is_integer():
         dEyes = int(dEyes)
       expression = expression.replace("sin("+sinner+")",str(dEyes))
-      break
   return eval(expression)
   
 if __name__ == "__main__":
