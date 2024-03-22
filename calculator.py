@@ -22,8 +22,16 @@ def pushToDisplay(displayMe,display):
     display.config(text=displayMe)
 
 def calc(expression):
-    
-    return eval(expression)
-
+  justInCase = expression
+  expression = expression.replace("pi",str(math.pi))
+  expression = expression.replace("e",str(math.e))
+  while "sin(" in expression:
+      sin = re.search("sin((.*))", justInCase)
+      sinner = float(sin[1][1:-1])
+      if sinner.is_integer():
+          sinner = int(sinner)
+      print(type(sin[1]),sin[1],type(sinner))
+      break
+  return expression
 if __name__ == "__main__":
     main()
