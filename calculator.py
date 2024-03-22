@@ -27,10 +27,11 @@ def calc(expression):
   expression = expression.replace("e",str(math.e))
   while "sin(" in expression:
       sin = re.search("sin((.*))", justInCase)
+      dEyes = sin[1][1:-1]
       sinner = float(sin[1][1:-1])
       if sinner.is_integer():
           sinner = int(sinner)
-      print(type(sin[1]),sin[1],type(sinner))
+      expression.replace("sin("+dEyes+")",sinner)
       break
   return expression
 if __name__ == "__main__":
